@@ -7,7 +7,7 @@
     "sync:awesome-lists": "node scripts/sync-awesome-lists.js",
     "sync:github-stars": "node scripts/sync-github-stars.js",
     "sync:mcp-registry": "node scripts/sync-mcp-registry.js",
-    "generate": "node scripts/generate-readme.js"
+    "test:sync-runner": "node scripts/test-sync-runner.js"
   },
   "keywords": ["awesome", "agent-skills", "mcp", "claude-code", "cursor-rules", "ai-agents"],
   "license": "CC0-1.0",
@@ -16,3 +16,4 @@
     "url": "https://github.com/awesome-agent-skills/awesome-agent-skills"
   }
 }
+
