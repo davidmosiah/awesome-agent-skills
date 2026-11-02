@@ -89,8 +89,8 @@ npm run sync
 # Run specific sync
 node scripts/sync-awesome-lists.js
 
-# Generate README from data
-npm run generate
+# Test orchestration with local stub scripts only (no sync/network)
+npm run test:sync-runner
 ```
 
 ## GitHub Actions
@@ -99,3 +99,8 @@ The sync runs automatically via `.github/workflows/sync.yml`:
 - **Daily**: Tier 1 & 2 sources (API + structured data)
 - **Weekly**: Tier 3 sources (web scraping)
 - **On PR**: Validates links and format
+
+
+### Runner failure behavior
+
+The runner invokes scripts with the current Node executable and argv, without a shell, so checkout paths with spaces or shell metacharacters remain literal. It continues later sources after an error, but exits nonzero if any child fails, is signaled, times out or cannot start. This intentionally replaces the former false-success result. The nonexistent `generate-readme.js` command has been removed; no README generator is provided by this snapshot. These runner fixtures do not validate remote data sources or the web application.
